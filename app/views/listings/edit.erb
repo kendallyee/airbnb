@@ -1,0 +1,43 @@
+<h2>Edit</h2>
+
+<%= form_with scope: :listings, url: listing_path(@listing.id), method: :patch, local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :place_type %>
+    <%= form.text_field :place_type %>
+  </div>
+
+  <div>
+    <%= form.label :property_type %>
+    <%= form.text_field :property_type %>
+  </div>
+
+    <%= form.label :country %>
+    <%= form.text_field :country %>
+  </div>
+
+
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit "Update" %>
+  </div>
+
+<% end %>

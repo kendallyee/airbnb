@@ -1,0 +1,23 @@
+<h2>All Listings</h2>
+
+<div>
+  <% @listings.each do |l| %>
+    <a href="listings/<%=l.id%>">
+      <h4><%= l.name %></h4>
+    </a>
+
+    <li>Description: <%= l.description %></li>
+    <li>Place type: <%= l.place_type %></li>
+    <li>Property type: <%= l.property_type %></li>
+    <li>Country: <%= l.country%></li>
+    <li>Address: <%= l.address %></li>
+    <li>USD$: <%= l.price%></li>
+    <%= link_to '[Edit]', edit_listing_path(l.id) %>
+
+    <%= link_to '[Delete]', listing_path(l.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+
+
+  <% end %>
+</div>

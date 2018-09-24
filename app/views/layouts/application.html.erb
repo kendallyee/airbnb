@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Airbnb</title>
+    <title>Ok-Bnb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -23,7 +23,15 @@
       <% end %>
     </div>
 
+   <div>
     <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+   </div>
+
+   <div>
+    <%= link_to "Create Listings", new_listing_path %>
+    <%= link_to "All Listings", listings_path %>
+   </div>
+
 
     <%= yield %>
 
