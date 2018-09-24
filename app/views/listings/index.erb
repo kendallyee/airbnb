@@ -12,12 +12,12 @@
     <li>Country: <%= l.country%></li>
     <li>Address: <%= l.address %></li>
     <li>USD$: <%= l.price%></li>
-    <%= link_to '[Edit]', edit_listing_path(l.id) %>
-
-    <%= link_to '[Delete]', listing_path(l.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-
 
   <% end %>
+</div>
+
+<div>
+  <%= paginate @listings %>
+  <%= page_entries_info @listings %>
+
 </div>

@@ -65,3 +65,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'kaminari'

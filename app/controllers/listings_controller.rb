@@ -1,16 +1,18 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
+    @listings = Listing.page(params[:page]).per(10)
     render 'listings/index'
   end
 
   def show
     @listing = Listing.find(params[:id])
+    render 'listings/show'
   end
 
   def edit
     @listing = Listing.find(params[:id])
+    render 'listings/edit'
   end
 
   def create
@@ -27,7 +29,7 @@ class ListingsController < ApplicationController
     @listing.update(listing_params)
 
     flash[:success] = "Successfully edited listings!"
-    redirect_to listings_path
+    redirect_to edit_listing_path(@listing)
 
   end
 
@@ -42,7 +44,7 @@ class ListingsController < ApplicationController
   #strong params
   private
   def listing_params
-    params.require(:listings).
+    params.require(:listing).
     permit(
       :name,
       :place_type,
