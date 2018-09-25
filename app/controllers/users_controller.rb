@@ -1,4 +1,19 @@
 class UsersController < Clearance::UsersController
+
+  def index
+    @user = User.find(params[:id])
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render 'users/show'
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    render 'users/edit'
+  end
+
   def new
     @user = User.new
     render "users/new"
@@ -15,8 +30,16 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+
+    flash[:success] = "Successfully edited profile!"
+    redirect_to user_path(@user)
+  end
+
   private
   def user_params
-    params.require(:user).permit(:email, :password, :name)
+    params.require(:user).permit(:email, :password, :name, :avatar)
   end
 end

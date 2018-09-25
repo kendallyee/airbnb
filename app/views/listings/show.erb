@@ -1,5 +1,9 @@
 <h2>Full details</h2>
 
+<% @listing.images.each do |image| %>
+    <%= image_tag(image.url) %>
+<% end %>
+
 <div>
       <h4><%= @listing.name %></h4>
 

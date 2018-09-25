@@ -38,6 +38,10 @@ ActiveRecord::Base.transaction do
 
     listing['user_id'] = uids.sample
 
+    listing['photos'] = [
+      Rails.root.join("app/assets/images/sample_listing.jpg").open
+    ]
+
     Listing.create(listing)
   end
 end

@@ -60,6 +60,7 @@ class ListingsController < ApplicationController
       :price,
       :description,
       :user_id,
+      {images: []}
     )
   end
 end
