@@ -1,0 +1,22 @@
+<h2>Your accommodation is successfully booked! </h2>
+
+<br>
+<br>
+
+<h3>Please refer to the details below:</h3>
+
+<div>
+  <ul>
+    <li>Name: <%= @reservation.listing.name%></li>
+    <li>Country: <%= @reservation.listing.country%></li>
+    <li>Check in: <%= @reservation.check_in%></li>
+    <li>Checkout: <%= @reservation.check_out%></li>
+    <li>Total amount US$: <%= @reservation.total_price%></li>
+  </ul>
+</div>
+
+<div>
+  <%= link_to '[Delete]', listing_reservation_path(@reservation.id),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+</div>

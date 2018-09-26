@@ -4,6 +4,8 @@ class Listing < ApplicationRecord
   validates :country, :state, :city, :zipcode, :address, :user, presence: true
   validates :price, presence: true, numericality: {greater_than: 0}
 
-  mount_uploaders :images, ListingImagesUploader 
+  has_many :reservations
+
+  mount_uploaders :images, ListingImagesUploader
 
 end
