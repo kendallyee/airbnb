@@ -1,6 +1,11 @@
 <h2>Your accommodation is successfully booked! </h2>
 
 <br>
+
+<h2>Your can make your payment at here: </h2>
+
+<%= link_to '[Make Payment]', braintree_new_path(id:@reservation.id) %>
+
 <br>
 
 <h3>Please refer to the details below:</h3>

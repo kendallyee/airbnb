@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'braintree/new'
+  post 'braintree/checkout'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -11,6 +14,8 @@ Rails.application.routes.draw do
   resources :listings, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
       resources :reservations
   end
+
+
 
   # resources :reservations, only: [ :new]
 
