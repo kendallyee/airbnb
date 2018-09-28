@@ -27,6 +27,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
@@ -58,5 +59,17 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  require 'carrierwave/orm/activerecord'
+
+
+  config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            ENV['GMAIL_USERNAME'], # don't put sensitive information directly in this file!
+      password:             ENV['GMAIL_PASSWORD'],
+      authentication:       'plain',
+      enable_starttls_auto: true  }
+
+  config.active_job.queue_adapter = :sidekiq
 end

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Dear <%= @user.email %>,</p>
+
+    <h2>Thank you for your booking!</h2>
+    <p>
+      You have successfully make a payment for your trip,
+      You're going to <%= @listing.country %>!.<br>
+    </p>
+    <p>
+      Your host is <%= @host.email %>
+    </p>
+    <p>Thanks for visiting and have a great day!</p>
+  </body>
+</html>

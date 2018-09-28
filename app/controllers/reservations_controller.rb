@@ -30,7 +30,6 @@ def destroy
     @reservation.destroy
 
     redirect_to listing_path
-
 end
 
 #strong params
