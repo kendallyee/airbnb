@@ -8,4 +8,6 @@ class Listing < ApplicationRecord
 
   mount_uploaders :images, ListingImagesUploader
 
+  scope :country, -> (country) {where country: country}
+  scope :property_type, -> (property_type) {where property_type: property_type}
 end

@@ -1,7 +1,13 @@
 class ListingsController < ApplicationController
 
   def index
-    @listings = Listing.page(params[:page]).per(10)
+    @listings = Listing.where(nil) # creates an anonymous scope # r!st un list all
+    # 2nd run -filter
+    @listings = @listings.country(params[:search][:country]) if params[:search] && params[:search][:country].present?
+    #3rd run -filter
+    @listings = @listings.property_type(params[:search][:property_type]) if params[:search] && params[:search][:property_type].present?
+    #4th run - filtered list
+    @listings = @listings.page(params[:page]).per(10)
     render 'listings/index'
   end
 
