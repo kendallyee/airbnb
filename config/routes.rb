@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
 
 
+
   # resources :reservations, only: [ :new]
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
