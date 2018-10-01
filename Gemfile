@@ -72,3 +72,4 @@ gem 'braintree'
 gem 'sidekiq'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'rails_12factor', group: :production

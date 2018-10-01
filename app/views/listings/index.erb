@@ -14,7 +14,11 @@
           <a href="listings/<%=l.id%>">
             <h4><%= l.name %></h4>
           </a>
-            <%= image_tag l.images.first.url, :class => "img-fluid" %>
+            <% if l.images.any? %>
+              <%= image_tag l.images.first.url, :class => "img-fluid" %>
+            <% else %>
+              <img src="http://placehold.it/400x270" class="img-fluid" />
+            <% end %>
 
           <div class="card-body">
             <h5 class="card-title"><%= l.name %></h5>

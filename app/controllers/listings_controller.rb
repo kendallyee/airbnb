@@ -26,8 +26,12 @@ class ListingsController < ApplicationController
 
     @listing.user_id = current_user.id
 
-    @listing.save
+    if @listing.save
       redirect_to root_path
+    else
+      flash[:error] = @listing.errors
+      redirect_to new_listing_path
+    end
   end
 
   def update
