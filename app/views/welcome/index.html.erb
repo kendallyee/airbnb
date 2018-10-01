@@ -1,0 +1,31 @@
+<h1>Welcome to Ok-Bnb</h1>
+
+<% if signed_in? %>
+  <%= link_to "Profile", user_path(current_user) %>
+<% end %>
+
+<% @listings.each do |l| %>
+  <div class="card-deck">
+    <div class="card" style="width: 18rem;">
+      <a href="listings/<%=l.id%>">
+        <h4><%= l.name %></h4>
+      </a>
+          
+      <div class="card-body">
+        <h5 class="card-title"><%= l.name %></h5>
+        <div class="card-text">
+         <ul>
+           <li>Property type: <%= l.property_type %></li>
+           <li>Country: <%= l.country%></li>
+           <li>USD$: <%= l.price%></li>
+         </ul>
+       </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+<!-- </div> -->
+
+  <%= page_entries_info @listings %>
+  <%= paginate @listings %>
