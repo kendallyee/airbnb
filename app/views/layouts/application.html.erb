@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Airbnb</title>
+    <title>Ok-Bnb</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Load the Client component. -->
+    <script src="https://js.braintreegateway.com/web/3.6.3/js/client.min.js"></script>
+
+    <!-- Load the Hosted Fields component. -->
+    <script src="https://js.braintreegateway.com/web/3.6.3/js/hosted-fields.min.js"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
   </head>
 
   <body>
+    <% if signed_in? %>
+      Signed in as: <%= current_user.name %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+
+   <div>
+    <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+   </div>
+
+   <div>
+    <%= link_to "Create Listings", new_listing_path %>
+    <%= link_to "All Listings", listings_path %>
+   </div>
+
+
     <%= yield %>
+
   </body>
 </html>

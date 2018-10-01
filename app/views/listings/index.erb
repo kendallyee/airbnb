@@ -1,0 +1,36 @@
+<div class="container-fluid">
+<h2>All Listings</h2>
+
+<%= form_with scope: :search, url: listings_path, method: "GET", local: true do |f| %>
+  Country: <%= f.text_field :country %><br/>
+  Property Type: <%= f.text_field :property_type %><br/>
+  <%= f.submit "Search" %>
+<% end %>
+
+<div class="card-deck">
+  <% @listings.each do |l| %>
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem;">
+          <a href="listings/<%=l.id%>">
+            <h4><%= l.name %></h4>
+          </a>
+            <%= image_tag l.images.first.url, :class => "img-fluid" %>
+
+          <div class="card-body">
+            <h5 class="card-title"><%= l.name %></h5>
+            <div class="card-text">
+             <ul>
+               <li>Property type: <%= l.property_type %></li>
+               <li>Country: <%= l.country%></li>
+               <li>USD$: <%= l.price%></li>
+             </ul>
+           </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+    <%= page_entries_info @listings %>
+    <%= paginate @listings %>
+</div>

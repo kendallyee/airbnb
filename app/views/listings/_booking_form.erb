@@ -1,0 +1,19 @@
+<h4>Reservation</h4>
+
+flatpickr({
+    "plugins": [new rangePlugin({ input: "#secondRangeInput"})]
+});
+
+<div>
+  <%= form_with scope: :reservation, url:listing_reservations_path(params[:id]), local: true do |f| %>
+
+  <%= f.label :check_in %>
+  <%= f.date_field :check_in %>
+
+  <%= f.label :check_out %>
+  <%= f.date_field :check_out %>
+
+  <%= f.submit "Book Now" %>
+  <% end %>
+
+</div>

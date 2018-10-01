@@ -1,0 +1,42 @@
+<h2>Full details</h2>
+
+<% @listing.images.each do |image| %>
+    <%= image_tag(image.url) %>
+<% end %>
+
+<div>
+      <h4><%= @listing.name %></h4>
+
+    <li>Place type: <%= @listing.place_type%></li>
+    <li>Property_type: <%= @listing.property_type %></li>
+    <li>Room number : <%= @listing.room_number %></li>
+    <li>Bed number: <%= @listing.bed_number%></li>
+    <li>Guest number: <%= @listing.guest_number %></li>
+    <li>Country: <%= @listing.country%></li>
+    <li>State: <%= @listing.state%></li>
+    <li>City: <%= @listing.city%></li>
+    <li>Zipcode: <%= @listing.zipcode%></li>
+    <li>Address: <%= @listing.address%></li>
+    <li>USD$: <%= @listing.price%></li>
+    <li>Description: <%= @listing.description%></li>
+
+
+
+    <%= link_to '[Edit]', edit_listing_path(@listing.id) %>
+
+    <%= link_to '[Delete]', listing_path(@listing.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+
+</div>
+
+<br>
+<br>
+
+<div>
+
+  <%= render 'booking_form' %>
+
+ <%= link_to 'Back', listings_path %>
+
+</div>
